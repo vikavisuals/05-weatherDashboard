@@ -2,13 +2,11 @@
 const APIKey = "166a433c57516f51dfab1f7edaed8413";
 
 // San+Francisco,California
-
-let userCity = "San Diego";
+let userCity = "Berlin";
 let userState = "California";
-let userCountry = "";
 
 // Here we are building the URL we need to query the database
-var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${userCity},${userState}&appid=${APIKey}`;
+let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${userCity},${userState}&units=imperial&appid=${APIKey}`;
 
 // We then created an AJAX call
 $.ajax({
@@ -16,12 +14,17 @@ $.ajax({
   method: "GET"
 }).then(function(response) {
 
+
+
   console.log(response);
   console.log(response.wind.speed);
-  console.log(response.main.temp);
+  console.log(response.sys.country);
   let windSpeed = response.wind.speed;
-  let temperature = (response.main.temp - 273.15) * 1.80 + 32;
- 
+  let temperature = response.main.temp;
+  let cityName = response.name + ", " + response.sys.country;
+
+
+ $(".city").text(`City Name: ${cityName}`);
   $(".wind").text(`Wind Speed: ${windSpeed}`);
   $(".temp").text(`Temperature: ${temperature}`);
   
