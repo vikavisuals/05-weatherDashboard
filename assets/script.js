@@ -23,8 +23,8 @@ $("#getWeather").click(function (event) {
       let date = new Date(response.dt * 1000).toDateString();
       let icon = `http://openweathermap.org/img/wn/${response.weather["0"].icon}@2x.png`;
 
-      $(".city").text(`City Name: ${response.name + ", " + response.sys.country}`);
-      $(".date").text(`Date: ${date}`);
+      $(".city").text(response.name + ", " + response.sys.country);
+      $(".date").text(date);
       $(".icon").attr("src", icon);
       $(".temp").text(`Temperature: ${response.main.temp}`);
       $(".wind").text(`Wind Speed: ${response.wind.speed}`);

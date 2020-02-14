@@ -28,13 +28,6 @@
 
 <!-- * Display the following under current weather conditions:
 
-  * City
-  * Date
-  * Icon image (visual representation of weather conditions)
-  * Temperature
-  * Humidity
-  * Wind speed
-  * UV index
   * Include a search history so that users can access their past search terms. Clicking on the city name should perform a new search that returns current and future conditions for that city. 
 
   * Include a 5-Day Forecast below the current weather conditions. Each day for the 5-Day Forecast should display the following:
@@ -47,29 +40,43 @@
 <body>
   <div class="wrapper">
 
-    <!-- Bootstrap -->
+    <header>
+      <h1>Weather Dashboard</h1>
+      </header>
+
+
     <div class="container">
+
+
       <div class="row">
-        <div class="col">
+        <div id="searchCol" class="col-4">
 
-          <form>
-
-<input type="text" id="getLocation">
-
-          <div class="city"></div>
-          <div class="date"></div>
-          <img class="icon" src="">
-          <div class="temp"></div>
-          <div class="wind"></div>
-          <div class="uvIndex"></div>
-          <div class="humidity"></div>
-
-          <button id="getWeather">Get Weather</button>
-
-</form>
+          <div id="searchTool">
+            <form>
+              <input type="text" id="getLocation">
+              <button id="getWeather" class="btn btn-dark">Search</button>
+            </form>
+          </div>
         </div>
+
+        <div class="col-8">
+          <div id="weatherInfo">
+            <div class="city"></div>
+            <div class="date"></div>
+            <img class="icon" src="">
+            <div class="temp"></div>
+            <div class="wind"></div>
+            <div class="uvIndex"></div>
+            <div class="humidity"></div>
+          </div>
+        </div>
+
+
+
+
       </div>
     </div>
+  </div>
 
   </div>
 

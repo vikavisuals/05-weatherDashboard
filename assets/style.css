@@ -1,0 +1,39 @@
+body {
+  background: linear-gradient(rgb(181, 196, 206),rgb(128, 192, 201)) fixed;
+  font-family: 'Saira', sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+header {
+  background-color: rgb(54, 54, 54);
+  
+}
+
+#searchCol, #weatherInfo {
+  background-color: white;
+  height: 700px;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.city {
+  font-size: 30px;
+}
+
+input {
+  border-radius: 5px;
+  padding: 5px;
+  width: 150px;
+  margin: 10px;
+}
+
+#getWeather {
+  margin: 10px;
+}
