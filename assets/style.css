@@ -24,7 +24,8 @@ header {
 }
 
 .city {
-  font-size: 30px;
+  font-size: 35px;
+  padding-left: 15px;
 }
 
 input {
@@ -36,4 +37,12 @@ input {
 
 #getWeather {
   margin: 10px;
+}
+
+ul {
+  margin-left: 15px;
+}
+
+.icon {
+  width: 85px;
 }
