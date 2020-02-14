@@ -32,7 +32,19 @@ $("#getWeather").click(function (event) {
       $(".humidity").text(`Humidity: ${response.main.humidity}`);
 
     })
+
+
+    localStorage.setItem(response.name, response);
+    localStorage.getItem(response.name);
+
+    let prevSearch = $("<button></button>").text(response.name);
+    $("#searchCol").append(prevSearch);
   });
+
+
+
+
+
 
 
 });
