@@ -1,30 +1,36 @@
 body {
-  background: linear-gradient(rgb(54, 54, 54),teal) fixed;
+  background: linear-gradient( teal, #48484a) fixed;
   font-family: 'Saira', sans-serif;
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 80px;
   text-align: center;
-  padding: 20px;
-  color: white;
+  padding: 15px;
+  color: #ffffff;
 }
 
 header {
-  background-color: rgb(54, 54, 54);
+  background-color: #48484a;
+  border-bottom: 10px solid #ec6e4c;
 }
 
 .btn-dark {
-  background-color: rgb(54, 54, 54);
+  background-color: #48484a;
   color: white;
   outline: none;
   border: none;
   width: 100%;
   font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-dark:focus {
+  background-color: #48484a;
 }
 
 .btn-list {
-  background-color: rgb(54, 54, 54);
+  background-color: #ec6e4c;
   color: white;
   outline: none;
   border: none;
@@ -94,11 +100,8 @@ ul.temp {
 }
 
 #forecast {
-  padding: 10px;
-  margin: 10px;
-}
-
-#forecast {
   background-color: teal;
   border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
 }
