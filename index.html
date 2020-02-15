@@ -53,7 +53,7 @@
 
           <div id="searchTool">
             <form>
-              <input type="text" id="getLocation">
+              <input type="text" id="getLocation" class="shadow-none">
               <button id="getWeather" class="btn btn-dark">Search</button>
             </form>
           </div>
@@ -61,38 +61,40 @@
 
         <div class="col-8">
           <div id="weatherInfo">
-            <span class="city"></span>
-            <img class="icon" src="">
+            <div id="mainWeather">
+            <span class="city">5-Day Weather Forecast</span>
+            <div class="iconBg"><img class="icon" src=""></div>
             <ul class="temp"></ul>
             <ul class="wind"></ul>
             <ul class="uvIndex"></ul>
             <ul class="humidity"></ul>
+            </div>
 
 
             <div id="forecast">
-              <span class="cityFore1"></span>
-              <img class="iconFore1" src="">
+              <span id="date" class="cityFore1"></span>
+              <img id="icon" class="iconFore1" src="">
               <ul class="tempFore1"></ul>
               <ul class="humidityFore1"></ul>
             </div>
   
             <div id="forecast">
-              <span class="cityFore2"></span>
-              <img class="iconFore2" src="">
+              <span id="date" class="cityFore2"></span>
+              <img id="icon" class="iconFore2" src="">
               <ul class="tempFore2"></ul>
               <ul class="humidityFore2"></ul>
             </div>
   
             <div id="forecast">
-              <span class="cityFore3"></span>
-              <img class="iconFore3" src="">
+              <span id="date" class="cityFore3"></span>
+              <img id="icon" class="iconFore3" src="">
               <ul class="tempFore3"></ul>
               <ul class="humidityFore3"></ul>
             </div>
   
             <div id="forecast">
-              <span class="cityFore4"></span>
-              <img class="iconFore4" src="">
+              <span id="date" class="cityFore4"></span>
+              <img id="icon" class="iconFore4" src="">
               <ul class="tempFore4"></ul>
               <ul class="humidityFore4"></ul>
             </div>

@@ -64,7 +64,7 @@ $("#getWeather").click(function (event) {
       localStorage.setItem(response.city.name, response);
 
       // Generating a button per city searched by user
-      let prevSearch = $(`<button id="${response.city.name}Btn"></button><br>`).text(response.city.name);
+      let prevSearch = $(`<button id="${response.city.name}Btn" class="btn btn-list"></button><br>`).text(response.city.name);
       $("#searchCol").append(prevSearch);
 
       // Function that runs when city name button is clicked

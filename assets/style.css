@@ -1,10 +1,10 @@
 body {
-  background: linear-gradient(rgb(181, 196, 206),rgb(128, 192, 201)) fixed;
+  background: linear-gradient(rgb(54, 54, 54),teal) fixed;
   font-family: 'Saira', sans-serif;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 70px;
   text-align: center;
   padding: 20px;
   color: white;
@@ -12,7 +12,30 @@ h1 {
 
 header {
   background-color: rgb(54, 54, 54);
-  
+}
+
+.btn-dark {
+  background-color: rgb(54, 54, 54);
+  color: white;
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: 20px;
+}
+
+.btn-list {
+  background-color: rgb(54, 54, 54);
+  color: white;
+  outline: none;
+  border: none;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: teal;
+  color: rgb(255, 255, 255);
 }
 
 #searchCol, #weatherInfo {
@@ -24,29 +47,58 @@ header {
 }
 
 .city {
-  font-size: 35px;
+  font-size: 30px;
   padding-left: 15px;
 }
 
 input {
   border-radius: 5px;
   padding: 5px;
-  width: 150px;
-  margin: 10px;
-}
-
-#getWeather {
-  margin: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-family: 'Saira', sans-serif;
+  outline: none;
 }
 
 ul {
   margin-left: 15px;
+  font-size: 20px;
+  margin-bottom: 0px;
 }
 
-.icon {
-  width: 85px;
+ul.temp {
+  margin-top: 10px;
+}
+
+#icon {
+  width: 100px;
+  float: right;
+}
+
+#date {
+  font-size: 25px;
+  padding-left: 15px;
+  color: white;
+}
+
+#mainWeather {
+  margin: 10px;
+  margin-bottom: 25px;
+}
+
+.iconBg {
+  background-color: teal;
+  float: right;
+  border-radius: 10px;
+}
+
+#forecast {
+  padding: 10px;
+  margin: 10px;
 }
 
 #forecast {
   background-color: teal;
+  border-radius: 10px;
 }
