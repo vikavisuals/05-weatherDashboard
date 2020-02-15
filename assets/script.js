@@ -7,7 +7,7 @@ $("#getWeather").click(function (event) {
 
   // API key and URL for weather data retrieval
   const APIKey = "166a433c57516f51dfab1f7edaed8413";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&units=imperial&appid=${APIKey}`;
+  let url = `https://api.openweathermap.org/data/2.5/forecast?q=${userCity}&units=imperial&appid=${APIKey}`;
 
   // Primary AJAX call
   $.ajax({
@@ -16,7 +16,7 @@ $("#getWeather").click(function (event) {
   }).then(function (response) {
 
     // Secondary URL for UV Index
-    let uvUrl = `http://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.coord.lat}&lon=${response.coord.lon}&appid=${APIKey}`;
+    let uvUrl = `http://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${APIKey}`;
 
     // Secondary AJAX call for UV info
     $.ajax({
@@ -25,28 +25,55 @@ $("#getWeather").click(function (event) {
     }).then(function (uvResponse) {
 
       // Grabbing elements by class and assigning API data accordingly
-      $(".city").text(`${response.name}, ${response.sys.country} (${new Date(response.dt * 1000).toDateString()})`);
-      $(".icon").attr("src", `http://openweathermap.org/img/wn/${response.weather["0"].icon}@2x.png`);
-      $(".temp").text(`Temperature: ${response.main.temp} °F`);
-      $(".wind").text(`Wind Speed: ${response.wind.speed} MPH`);
+      $(".city").text(`${response.city.name}, ${response.city.country} (${new Date(response.list["0"].dt * 1000).toDateString()})`);
+      $(".icon").attr("src", `http://openweathermap.org/img/wn/${response.list["0"].weather["0"].icon}@2x.png`);
+      $(".temp").text(`Temperature: ${response.list["0"].main.temp} °F`);
+      $(".wind").text(`Wind Speed: ${response.list["0"].wind.speed} MPH`);
       $(".uvIndex").text(`UV Index: ${uvResponse.value}`);
-      $(".humidity").text(`Humidity: ${response.main.humidity} %`);
+      $(".humidity").text(`Humidity: ${response.list["0"].main.humidity} %`);
+
+      // Day 2 forecast
+      $(".cityFore1").text(`${new Date(response.list["3"].dt * 1000).toDateString()}`);
+      $(".iconFore1").attr("src", `http://openweathermap.org/img/wn/${response.list["3"].weather["0"].icon}@2x.png`);
+      $(".tempFore1").text(`Temperature: ${response.list["3"].main.temp} °F`);
+      $(".humidityFore1").text(`Humidity: ${response.list["3"].main.humidity} %`);
+
+      // Day 3 forecast
+      $(".cityFore2").text(`${new Date(response.list["11"].dt * 1000).toDateString()}`);
+      $(".iconFore2").attr("src", `http://openweathermap.org/img/wn/${response.list["11"].weather["0"].icon}@2x.png`);
+      $(".tempFore2").text(`Temperature: ${response.list["11"].main.temp} °F`);
+      $(".humidityFore2").text(`Humidity: ${response.list["11"].main.humidity} %`);
+
+      // Day 4 forecast
+      $(".cityFore3").text(`${new Date(response.list["19"].dt * 1000).toDateString()}`);
+      $(".iconFore3").attr("src", `http://openweathermap.org/img/wn/${response.list["19"].weather["0"].icon}@2x.png`);
+      $(".tempFore3").text(`Temperature: ${response.list["19"].main.temp} °F`);
+      $(".humidityFore3").text(`Humidity: ${response.list["19"].main.humidity} %`);
+
+      // Day 5 forecast
+      $(".cityFore4").text(`${new Date(response.list["27"].dt * 1000).toDateString()}`);
+      $(".iconFore4").attr("src", `http://openweathermap.org/img/wn/${response.list["27"].weather["0"].icon}@2x.png`);
+      $(".tempFore4").text(`Temperature: ${response.list["27"].main.temp} °F`);
+      $(".humidityFore4").text(`Humidity: ${response.list["27"].main.humidity} %`);
+
+      console.log(response);
+
 
 
       // Setting user search city name to local storage
-      localStorage.setItem(response.name, response);
+      localStorage.setItem(response.city.name, response);
 
       // Generating a button per city searched by user
-      let prevSearch = $(`<button id="${response.name}Btn"></button><br>`).text(response.name);
+      let prevSearch = $(`<button id="${response.city.name}Btn"></button><br>`).text(response.city.name);
       $("#searchCol").append(prevSearch);
 
       // Function that runs when city name button is clicked
-      $(`#${response.name}Btn`).click(function (event) {
+      $(`#${response.city.name}Btn`).click(function (event) {
         event.preventDefault();
 
         // Grabs city name depending on with button is clicked on
         let prevCity = $(this).text();
-        let url = `https://api.openweathermap.org/data/2.5/weather?q=${prevCity}&units=imperial&appid=${APIKey}`;
+        let url = `https://api.openweathermap.org/data/2.5/forecast?q=${prevCity}&units=imperial&appid=${APIKey}`;
 
         // Repeat of AJAX calls for weather info
         $.ajax({
@@ -54,19 +81,43 @@ $("#getWeather").click(function (event) {
           method: "GET"
         }).then(function (response) {
 
-          let uvUrl = `http://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.coord.lat}&lon=${response.coord.lon}&appid=${APIKey}`;
+          let uvUrl = `http://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${APIKey}`;
 
           $.ajax({
             url: uvUrl,
             method: "GET"
           }).then(function (uvResponse) {
-
-            $(".city").text(`${response.name}, ${response.sys.country} (${new Date(response.dt * 1000).toDateString()})`);
-            $(".icon").attr("src", `http://openweathermap.org/img/wn/${response.weather["0"].icon}@2x.png`);
-            $(".temp").text(`Temperature: ${response.main.temp} °F`);
-            $(".wind").text(`Wind Speed: ${response.wind.speed} MPH`);
+            // Grabbing elements by class and assigning API data accordingly
+            $(".city").text(`${response.city.name}, ${response.city.country} (${new Date(response.list["0"].dt * 1000).toDateString()})`);
+            $(".icon").attr("src", `http://openweathermap.org/img/wn/${response.list["0"].weather["0"].icon}@2x.png`);
+            $(".temp").text(`Temperature: ${response.list["0"].main.temp} °F`);
+            $(".wind").text(`Wind Speed: ${response.list["0"].wind.speed} MPH`);
             $(".uvIndex").text(`UV Index: ${uvResponse.value}`);
-            $(".humidity").text(`Humidity: ${response.main.humidity} %`);
+            $(".humidity").text(`Humidity: ${response.list["0"].main.humidity} %`);
+
+            // Day 2 forecast
+            $(".cityFore1").text(`${new Date(response.list["3"].dt * 1000).toDateString()}`);
+            $(".iconFore1").attr("src", `http://openweathermap.org/img/wn/${response.list["3"].weather["0"].icon}@2x.png`);
+            $(".tempFore1").text(`Temperature: ${response.list["3"].main.temp} °F`);
+            $(".humidityFore1").text(`Humidity: ${response.list["3"].main.humidity} %`);
+
+            // Day 3 forecast
+            $(".cityFore2").text(`${new Date(response.list["11"].dt * 1000).toDateString()}`);
+            $(".iconFore2").attr("src", `http://openweathermap.org/img/wn/${response.list["11"].weather["0"].icon}@2x.png`);
+            $(".tempFore2").text(`Temperature: ${response.list["11"].main.temp} °F`);
+            $(".humidityFore2").text(`Humidity: ${response.list["11"].main.humidity} %`);
+
+            // Day 4 forecast
+            $(".cityFore3").text(`${new Date(response.list["19"].dt * 1000).toDateString()}`);
+            $(".iconFore3").attr("src", `http://openweathermap.org/img/wn/${response.list["19"].weather["0"].icon}@2x.png`);
+            $(".tempFore3").text(`Temperature: ${response.list["19"].main.temp} °F`);
+            $(".humidityFore3").text(`Humidity: ${response.list["19"].main.humidity} %`);
+
+            // Day 5 forecast
+            $(".cityFore4").text(`${new Date(response.list["27"].dt * 1000).toDateString()}`);
+            $(".iconFore4").attr("src", `http://openweathermap.org/img/wn/${response.list["27"].weather["0"].icon}@2x.png`);
+            $(".tempFore4").text(`Temperature: ${response.list["27"].main.temp} °F`);
+            $(".humidityFore4").text(`Humidity: ${response.list["27"].main.humidity} %`);
 
             // Previous button UV closing tag
           });
@@ -77,25 +128,8 @@ $("#getWeather").click(function (event) {
         // Previous button on click function closing tag
       });
 
-      // URL for weather forecast API
-      let foreUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${userCity}&units=imperial&appid=${APIKey}`;
-
-      // Forecast AJAX call
-      $.ajax({
-        url: foreUrl,
-        method: "GET"
-      }).then(function (responseFore) {
-
-        // $(".cityFore").text(`${new Date(responseFore.dt * 1000).toDateString()}`);
-        // $(".iconFore").attr("src", `http://openweathermap.org/img/wn/${response.weather["0"].icon}@2x.png`);
-        // $(".tempFore").text(`Temperature: ${responseForee.main.temp} °F`);
-        // $(".humidityFore").text(`Humidity: ${responseFore.main.humidity} %`);
-
-        console.log(responseFore);
 
 
-        // Forecast API closing tag
-      });
 
       // Primary UV closing tag
     });

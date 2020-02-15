@@ -17,7 +17,7 @@ header {
 
 #searchCol, #weatherInfo {
   background-color: white;
-  height: 700px;
+  height: 100%;
   border-radius: 15px;
   padding: 20px;
   margin-top: 15px;
@@ -45,4 +45,8 @@ ul {
 
 .icon {
   width: 85px;
+}
+
+#forecast {
+  background-color: teal;
 }
