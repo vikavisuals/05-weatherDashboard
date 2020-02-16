@@ -56,13 +56,6 @@ $("#getWeather").click(function (event) {
       $(".tempFore4").text(`Temperature: ${response.list["27"].main.temp} °F`);
       $(".humidityFore4").text(`Humidity: ${response.list["27"].main.humidity} %`);
 
-      console.log(response);
-
-
-
-      // Setting user search city name to local storage
-      localStorage.setItem(response.city.name, response);
-
       // Generating a button per city searched by user
       let prevSearch = $(`<button id="${response.city.name}Btn" class="btn btn-list"></button><br>`).text(response.city.name);
       $("#searchCol").append(prevSearch);
@@ -121,23 +114,13 @@ $("#getWeather").click(function (event) {
 
             // Previous button UV closing tag
           });
-
           // Previous button AJAX closing tag
         });
-
         // Previous button on click function closing tag
       });
-
-
-
-
       // Primary UV closing tag
     });
-
-
-
     // Primary AJAX closing tag
   });
-
   // Search button closing tag
 });

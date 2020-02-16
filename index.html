@@ -3,54 +3,35 @@
 
 <head>
   <meta charset="UTF-8" />
-
   <title>Weather Dashboard</title>
 
   <!-- Reset file that erases all different browser default HTML -->
   <link rel="stylesheet" href="assets/reset.css">
-
   <!-- Bootstrap CSS link -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Saira&display=swap" rel="stylesheet">
-  <!-- font-family: 'Saira', sans-serif; -->
-
   <!-- Linking CSS file to this HTML -->
   <link rel="stylesheet" href="assets/style.css">
-
+  <!-- jQuery link -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
 </head>
-
-
-<!-- * Display the following under current weather conditions:
-
-  * Include a search history so that users can access their past search terms. Clicking on the city name should perform a new search that returns current and future conditions for that city. 
-
-  * Include a 5-Day Forecast below the current weather conditions. Each day for the 5-Day Forecast should display the following:
-  * Date
-  * Icon image (visual representation of weather conditions)
-  * Temperature
-  * Humidity -->
 
 
 <body>
   <div class="wrapper">
 
+    <!-- Page header -->
     <header>
       <h1>Weather Dashboard</h1>
     </header>
 
-
     <div class="container">
-
-
       <div class="row">
-        <div id="searchCol" class="col-4">
 
+        <!-- City search box and button -->
+        <div id="searchCol" class="col-4">
           <div id="searchTool">
             <form>
               <input type="text" id="getLocation" class="shadow-none">
@@ -59,39 +40,43 @@
           </div>
         </div>
 
+        <!-- Diplays searched city weather -->
         <div class="col-8">
           <div id="weatherInfo">
             <div id="mainWeather">
-            <span class="city">Current Weather</span>
-            <div class="iconBg"><img class="icon" src=""></div>
-            <ul class="temp"></ul>
-            <ul class="wind"></ul>
-            <ul class="uvIndex"></ul>
-            <ul class="humidity"></ul>
+              <span class="city">Current Weather</span>
+              <div class="iconBg"><img class="icon" src=""></div>
+              <ul class="temp"></ul>
+              <ul class="wind"></ul>
+              <ul class="uvIndex"></ul>
+              <ul class="humidity"></ul>
             </div>
 
-
+            <!-- Second day forecast info -->
             <div id="forecast">
               <span id="date" class="cityFore1">2nd Day Forecast</span>
               <img id="icon" class="iconFore1" src="">
               <ul class="tempFore1"></ul>
               <ul class="humidityFore1"></ul>
             </div>
-  
+
+            <!-- Third day forecast info -->
             <div id="forecast">
               <span id="date" class="cityFore2">3rd Day Forecast</span>
               <img id="icon" class="iconFore2" src="">
               <ul class="tempFore2"></ul>
               <ul class="humidityFore2"></ul>
             </div>
-  
+
+            <!-- Fourth day forecast info -->
             <div id="forecast">
               <span id="date" class="cityFore3">4th Day Forecast</span>
               <img id="icon" class="iconFore3" src="">
               <ul class="tempFore3"></ul>
               <ul class="humidityFore3"></ul>
             </div>
-  
+
+            <!-- Fifth day forecast info -->
             <div id="forecast">
               <span id="date" class="cityFore4">5th Day Forecast</span>
               <img id="icon" class="iconFore4" src="">
@@ -100,17 +85,14 @@
             </div>
           </div>
 
+          <!-- Column 8 closing tag -->
         </div>
-
-
-
-
+        <!-- Primary row closing tag -->
       </div>
+      <!-- Container closing tag -->
     </div>
+    <!-- Page wrapper closing tag -->
   </div>
-
-  </div>
-
 
   <!-- Bootstrap JS and JQuery links-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
