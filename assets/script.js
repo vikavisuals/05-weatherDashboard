@@ -57,11 +57,11 @@ $("#getWeather").click(function (event) {
       $(".humidityFore4").text(`Humidity: ${response.list["27"].main.humidity} %`);
 
       // Generating a button per city searched by user
-      let prevSearch = $(`<button id="${response.city.name}Btn" class="btn btn-list"></button><br>`).text(response.city.name);
+      let prevSearch = $(`<button id="${response.city.name.replace(/\s+/g, '')}Btn" class="btn btn-list"></button><br>`).text(response.city.name);
       $("#searchCol").append(prevSearch);
 
       // Function that runs when city name button is clicked
-      $(`#${response.city.name}Btn`).click(function (event) {
+      $(`#${response.city.name.replace(/\s+/g, '')}Btn`).click(function (event) {
         event.preventDefault();
 
         // Grabs city name depending on with button is clicked on
