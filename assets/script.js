@@ -74,7 +74,7 @@ $("#getWeather").click(function (event) {
           method: "GET"
         }).then(function (response) {
 
-          let uvUrl = `http://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${APIKey}`;
+          let uvUrl = `https://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${APIKey}`;
 
           $.ajax({
             url: uvUrl,
