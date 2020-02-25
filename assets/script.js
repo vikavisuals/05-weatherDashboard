@@ -7,7 +7,7 @@ $("#getWeather").click(function (event) {
 
   // API key and URL for weather data retrieval
   const APIKey = "166a433c57516f51dfab1f7edaed8413";
-  let url = `httpss://api.openweathermap.org/data/2.5/forecast?q=${userCity}&units=imperial&appid=${APIKey}`;
+  let url = `https://api.openweathermap.org/data/2.5/forecast?q=${userCity}&units=imperial&appid=${APIKey}`;
 
   // Primary AJAX call
   $.ajax({
@@ -66,7 +66,7 @@ $("#getWeather").click(function (event) {
 
         // Grabs city name depending on with button is clicked on
         let prevCity = $(this).text();
-        let url = `httpss://api.openweathermap.org/data/2.5/forecast?q=${prevCity}&units=imperial&appid=${APIKey}`;
+        let url = `https://api.openweathermap.org/data/2.5/forecast?q=${prevCity}&units=imperial&appid=${APIKey}`;
 
         // Repeat of AJAX calls for weather info
         $.ajax({
@@ -74,7 +74,7 @@ $("#getWeather").click(function (event) {
           method: "GET"
         }).then(function (response) {
 
-          let uvUrl = `httpss://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${APIKey}`;
+          let uvUrl = `https://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${APIKey}`;
 
           $.ajax({
             url: uvUrl,
