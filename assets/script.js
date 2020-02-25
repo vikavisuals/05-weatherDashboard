@@ -16,7 +16,7 @@ $("#getWeather").click(function (event) {
   }).then(function (response) {
 
     // Secondary URL for UV Index
-    let uvUrl = `https://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${APIKey}`;
+    let uvUrl = `http://api.openweathermap.org/data/2.5/uvi?&units=imperial&lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${APIKey}`;
 
     // Secondary AJAX call for UV info
     $.ajax({
